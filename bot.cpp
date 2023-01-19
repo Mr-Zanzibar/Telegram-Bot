@@ -8,7 +8,6 @@ int main() {
     bot.getEvents().onCommand("weather", [&bot](TgBot::Message::Ptr message) {
         std::string location = message->text.substr(6);
         auto response = cpr::Get(cpr::Url{"https://api.weather.com/v2/pws/observations/current?stationId=KCASANFR58&format=json&units=m&apiKey=6532d6a2ab5148eb8b202230192606"});
-        // Invia un messaggio all'utente con le informazioni sul tempo
         bot.getApi().sendMessage(message->chat->id, "Il tempo a " + location + " è: " + response.text);
     });
 
