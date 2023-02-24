@@ -12,7 +12,7 @@ New Features!
 
 - better security for the api key
 
-- new /news command (the bot will now send degrees, humidity and links to the most important newspaper pages for the largest/important cities in Europe.)
+- new "/news" command (the bot will now send degrees, humidity and links to the most important newspaper pages for the largest/important cities in Europe.)
 
 - the bot will now also use fahrenheit
 
