@@ -1,3 +1,10 @@
+#include <iostream>
+#include <tgbot/tgbot.h>
+#include <cpr/cpr.h>
+#include <json.hpp>
+
+// forgot this lol
+
 const std::string WEATHER_COMMAND = "/weather";
 const std::string NEWS_COMMAND = "/news";
 const std::string API_KEY = "6532d6a2ab5148eb8b202230192606";
