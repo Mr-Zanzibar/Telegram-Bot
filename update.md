@@ -1,5 +1,13 @@
 # Updates
 
+# 1.0.3
+
+- bug fix
+
+- new functions for the user
+
+- event manager
+
 ## 1.0.2
 
 New Features!
