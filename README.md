@@ -8,3 +8,4 @@ A Simple telegram bot made in c++
 ## Updates
 
 - You can see the updates [here](https://github.com/Mr-Zanzibar/Telegram-Bot/blob/main/update.md)
+
