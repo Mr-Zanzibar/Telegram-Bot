@@ -1,5 +1,5 @@
 # Telegram-Bot
-A Simple telegram bot made in c++
+A Simple telegram weather bot made in c++
 
 ## !
 
