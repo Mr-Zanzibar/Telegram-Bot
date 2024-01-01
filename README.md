@@ -3,7 +3,7 @@ A Simple telegram weather bot made in c++
 
 ## !
 
-- to make the bot work you will need to change the API KEY and YOUR BOT TOKEN inside the code.
+- to make the bot work you will need to change the "API KEY" and "YOUR BOT TOKEN" inside the code.
 
 ## Updates
 
