@@ -8,6 +8,7 @@ const std::string WEATHER_COMMAND = "/weather";
 const std::string NEWS_COMMAND = "/news";
 const std::string LOCATION_COMMAND = "/location";
 const std::string API_KEY = "YOUR_API_KEY"; // CHANGE THIS
+const std::string BOT_TOKEN = "YOUR_BOT_TOKEN"; // CHANGE THIS
 const std::string API_URL = "https://api.weather.com/v2/pws/observations/current?stationId=KCASANFR58&format=json&units=m&apiKey=" + API_KEY;
 const std::map<std::string, std::string> city_news = {
     {"rome", "https://www.republica.it"},
@@ -19,15 +20,19 @@ const std::map<std::string, std::string> city_news = {
 };
 
 std::string parseWeatherInformation(const std::string& response, bool useFahrenheit) {
-  auto jsonResponse = nlohmann::json::parse(response);
-  auto temperature = jsonResponse["observations"][0]["metric"]["temp"];
-  auto humidity = jsonResponse["observations"][0]["metric"]["humidity"];
+  try {
+    auto jsonResponse = nlohmann::json::parse(response);
+    auto temperature = jsonResponse["observations"][0]["metric"]["temp"];
+    auto humidity = jsonResponse["observations"][0]["metric"]["humidity"];
 
-  if (useFahrenheit) {
-    temperature = (temperature * 9.0 / 5.0) + 32.0;
+    if (useFahrenheit) {
+      temperature = (temperature * 9.0 / 5.0) + 32.0;
+    }
+
+    return "Temperature: " + std::to_string(temperature) + (useFahrenheit ? "°F" : "°C") + ", Humidity: " + std::to_string(humidity) + "%";
+  } catch (const std::exception& e) {
+    throw std::runtime_error("Error parsing weather information: " + std::string(e.what()));
   }
-
-  return "Temperature: " + std::to_string(temperature) + (useFahrenheit ? "°F" : "°C") + ", Humidity: " + std::to_string(humidity) + "%";
 }
 
 void sendMessageWithRetry(TgBot::Bot& bot, TgBot::Message::Ptr message, const std::string& text) {
@@ -88,7 +93,7 @@ void handleLocation(TgBot::Bot& bot, TgBot::Message::Ptr message) {
 }
 
 int main() {
-  TgBot::Bot bot("YOUR_BOT_TOKEN"); // CHANGE THIS
+  TgBot::Bot bot(BOT_TOKEN);
 
   bot.getEvents().onCommand(WEATHER_COMMAND, [&bot](TgBot::Message::Ptr message) {
     if (message->text.length() < WEATHER_COMMAND.length() + 2) {
