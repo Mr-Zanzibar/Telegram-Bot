@@ -2,13 +2,13 @@
 
 # 1.0.5
 
-– Environment Variables or External Configuration File
+- Environment Variables or External Configuration File
 
-– Improved Error Handling: Enhanced error handling in the parseWeatherInformation function by catching exceptions and providing a more descriptive error message.
+- Improved Error Handling: Enhanced error handling in the parseWeatherInformation function by catching exceptions and providing a more descriptive error message.
 
-– Use of Environment Variables, started using environment variables to manage API keys and bot tokens instead of hardcoding them directly into the source code.
+- Use of Environment Variables, started using environment variables to manage API keys and bot tokens instead of hardcoding them directly into the source code.
 
-– Declared a BOT_TOKEN variable to store the bot token and used it during the bot creation.
+- Declared a BOT_TOKEN variable to store the bot token and used it during the bot creation.
 
 # 1.0.4
 
